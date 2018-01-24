@@ -5,8 +5,8 @@
 class chronyd ($ensure='masked') inherits chronyd::params {
 
   Exec {
-		path => '/bin:/sbin:/usr/bin:/usr/sbin',
-	}
+    path => '/bin:/sbin:/usr/bin:/usr/sbin',
+  }
 
   case $ensure
   {
