@@ -16,7 +16,7 @@ class chronyd ($ensure='masked') inherits chronyd::params {
       #TODO: detectar versio de puppet i escollir el metode
 
       exec { 'systemctl stop and mask chronyd':
-        command => "bash -c 'systemctl stop chronyd; systemctl mask chronyd'",
+        command => 'bash -c \'systemctl stop chronyd; systemctl mask chronyd\'',
         unless => 'systemctl list-unit-files | grep "chronyd.service" | grep masked',
       }
     }

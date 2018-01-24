@@ -9,7 +9,7 @@ class chronyd::params {
         /^7.*$/:
         {
         }
-        default: { fail("Unsupported RHEL/CentOS version!")  }
+        default: { fail('Unsupported RHEL/CentOS version!')  }
       }
     }
     default  : { fail('Unsupported OS!') }
