@@ -17,7 +17,7 @@ class chronyd ($ensure='masked') inherits chronyd::params {
 
       exec { 'systemctl stop and mask chronyd':
         command => 'bash -c \'systemctl stop chronyd; systemctl mask chronyd\'',
-        unless => 'systemctl list-unit-files | grep "chronyd.service" | grep masked',
+        unless  => 'systemctl list-unit-files | grep "chronyd.service" | grep masked',
       }
     }
     default: { fail("unsupported chronyd::ensure: ${ensure}") }
