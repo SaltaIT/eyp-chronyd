@@ -2,7 +2,7 @@
   "name": "eyp-chronyd",
   "version": "0.1.0",
   "author": "eyp",
-  "summary": "puppet module to mask chronyd -_-",
+  "summary": "puppet module to mask chronyd (oracledb role requirement)",
   "license": "Apache-2.0",
   "source": "https://github.com/NTTCom-MS/eyp-chronyd",
   "project_page": "https://github.com/NTTCom-MS/eyp-chronyd",
