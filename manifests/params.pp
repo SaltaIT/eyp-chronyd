@@ -6,7 +6,7 @@ class chronyd::params {
     {
       case $::operatingsystemrelease
       {
-        /^7.*$/:
+        /^[78].*$/:
         {
         }
         default: { fail('Unsupported RHEL/CentOS version!')  }

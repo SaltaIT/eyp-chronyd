@@ -1,6 +1,6 @@
 {
   "name": "eyp-chronyd",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "eyp",
   "summary": "puppet module to mask chronyd (oracledb role requirement)",
   "license": "Apache-2.0",
@@ -13,23 +13,23 @@
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
-      "operatingsystemrelease": [ "7" ]
+      "operatingsystemrelease": [ "7", "8" ]
     },
     {
       "operatingsystem": "CentOS",
-      "operatingsystemrelease": [ "7" ]
+      "operatingsystemrelease": [ "7", "8" ]
     },
     {
       "operatingsystem": "Scientific",
-      "operatingsystemrelease": [ "7" ]
+      "operatingsystemrelease": [ "7", "8" ]
     },
     {
       "operatingsystem": "OEL",
-      "operatingsystemrelease": [ "7" ]
+      "operatingsystemrelease": [ "7", "8" ]
     },
     {
       "operatingsystem": "OracleLinux",
-      "operatingsystemrelease": [ "7" ]
+      "operatingsystemrelease": [ "7", "8" ]
     }
   ],
   "requirements": [
