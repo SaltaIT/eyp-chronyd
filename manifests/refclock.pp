@@ -2,7 +2,7 @@
 define chronyd::refclock(
                           $driver,
                           $refclock_name = $name,
-                          $oder = '01',
+                          $order = '01',
                           $poll = undef,
                           $dpoll = undef,
                           $offset = undef,
@@ -11,7 +11,7 @@ define chronyd::refclock(
                           $require = false,
                         ) {
   # https://docs.microsoft.com/en-us/azure/virtual-machines/linux/time-sync
-  concat::fragment{ 'base chrony':
+  concat::fragment{ "refclock ${driver} ${refclock_name}":
     order   => "10-${order}",
     target  => '/etc/chrony.conf',
     content => template("${module_name}/refclock.erb"),
