@@ -1,5 +1,7 @@
 class chronyd::params {
 
+  $package_name = 'chrony'
+
   case $::osfamily
   {
     'redhat' :
