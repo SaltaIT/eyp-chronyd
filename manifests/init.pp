@@ -25,13 +25,9 @@ class chronyd (
                 $makestep_runs = '3',
               ) inherits chronyd::params {
 
-
-
-
-  # /etc/chrony.conf
-
-  # https://docs.microsoft.com/en-us/azure/virtual-machines/linux/time-sync
-  # refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
-
+  class { '::chronyd::install': } ->
+  class { '::chronyd::config': } ~>
+  class { '::chronyd::service': } ->
+  Class['::chronyd']
 
 }

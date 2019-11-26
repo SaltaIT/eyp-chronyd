@@ -10,6 +10,7 @@ define chronyd::refclock(
                           $prefer = false,
                           $require = false,
                         ) {
+  # https://docs.microsoft.com/en-us/azure/virtual-machines/linux/time-sync
   concat::fragment{ 'base chrony':
     order   => "10-${order}",
     target  => '/etc/chrony.conf',
