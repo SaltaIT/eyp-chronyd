@@ -9,6 +9,7 @@ define chronyd::refclock(
                           $trust           = false,
                           $prefer          = false,
                           $required_source = false,
+                          $description     = undef,
                         ) {
 
   # https://docs.microsoft.com/en-us/azure/virtual-machines/linux/time-sync
