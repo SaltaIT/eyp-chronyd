@@ -18,7 +18,7 @@ class chronyd (
                 $log_tempcomp          = false,
                 $allow                 = [],
                 $local_stratum         = undef,
-                $minsources            = '2',
+                $minsources            = '1',
                 $driftfile             = '/var/lib/chrony/drift',
                 $rtcsync               = true,
                 $makestep_offset       = '1.0',

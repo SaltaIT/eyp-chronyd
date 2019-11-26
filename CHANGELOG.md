@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.1
+
+* changed minsources default value to 1
+
 ## 0.2.0
 
 * cronyd rework
