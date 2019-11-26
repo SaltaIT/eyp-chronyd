@@ -1,0 +1,9 @@
+
+refclock <%= @driver %> <% @refclock_name -%>
+<% if defined?(@poll) %> poll <%= @poll %><% end -%>
+<% if defined?(@dpoll) %> dpoll <%= @dpoll %><% end -%>
+<% if defined?(@offset) %> offset <%= @offset %><% end -%>
+<% if @prefer %> prefer<% end -%>
+<% if @require %> require<% end -%>
+<% if @trust %> trust<% end -%>
+<% %>
