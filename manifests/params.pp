@@ -1,6 +1,7 @@
 class chronyd::params {
 
   $package_name = 'chrony'
+  $service_name = 'chronyd'
 
   case $::osfamily
   {
