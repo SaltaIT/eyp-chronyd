@@ -10,6 +10,7 @@ define chronyd::refclock(
                           $prefer          = false,
                           $required_source = false,
                         ) {
+
   # https://docs.microsoft.com/en-us/azure/virtual-machines/linux/time-sync
   concat::fragment{ "refclock ${driver} ${refclock_name}":
     order   => "10-${order}",
