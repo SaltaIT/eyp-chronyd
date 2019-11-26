@@ -8,7 +8,7 @@ define chronyd::refclock(
                           $offset = undef,
                           $trust = false,
                           $prefer = false,
-                          $require = false,
+                          $required_source = false,
                         ) {
   # https://docs.microsoft.com/en-us/azure/virtual-machines/linux/time-sync
   concat::fragment{ "refclock ${driver} ${refclock_name}":
