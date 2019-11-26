@@ -1,40 +1,52 @@
 # puppet managed file
 
-# Use public servers from the pool.ntp.org project.
-# Please consider joining the pool (http://www.pool.ntp.org/join.html).
-server 0.centos.pool.ntp.org iburst
-server 1.centos.pool.ntp.org iburst
-server 2.centos.pool.ntp.org iburst
-server 3.centos.pool.ntp.org iburst
+# https://chrony.tuxfamily.org/manual.html#local-directive
 
 # Record the rate at which the system clock gains/losses time.
-driftfile /var/lib/chrony/drift
+driftfile <%= @driftfile %>
 
 # Allow the system clock to be stepped in the first three updates
 # if its offset is larger than 1 second.
-makestep 1.0 3
+makestep <%= @makestep_offset %> <%= @makestep_runs %>
 
+<% if @rtcsync -%>
 # Enable kernel synchronization of the real-time clock (RTC).
 rtcsync
+<% end -%>
 
 # Enable hardware timestamping on all interfaces that support it.
 #hwtimestamp *
 
 # Increase the minimum number of selectable sources required to adjust
 # the system clock.
-#minsources 2
+minsources <%= @minsources %>
 
+<% if @allow.any? -%>
 # Allow NTP client access from local network.
-#allow 192.168.0.0/16
+<% @allow.each do |val| -%>
+allow <%= val %>
+<% end -%>
+<% end -%>
 
+<% if defined?(@local_stratum) -%>
 # Serve time even if not synchronized to a time source.
-#local stratum 10
+local stratum <%= @local_stratum %>
+<% end -%>
 
 # Specify file containing keys for NTP authentication.
 #keyfile /etc/chrony.keys
 
 # Specify directory for log files.
-logdir /var/log/chrony
+logdir <%= @logdir %>
 
+<% if @log_rtc or @log_tempcomp or @log_tracking or @log_refclocks or @log_statistics or @log_measurements -%>
 # Select which information is logged.
-#log measurements statistics tracking
+log<% if @log_measurements %> measurements<% end %><% if @log_statistics %> statistics<% end %><% if @log_tracking %> tracking<% end %><% if @log_refclocks %> refclocks<% end %><% if @log_tempcomp %> tempcomp<% end %><% if @log_rtc %> rtc<% end %>
+<% end -%>
+
+# Use public servers from the pool.ntp.org project.
+# Please consider joining the pool (http://www.pool.ntp.org/join.html).
+server 0.centos.pool.ntp.org iburst
+server 1.centos.pool.ntp.org iburst
+server 2.centos.pool.ntp.org iburst
+server 3.centos.pool.ntp.org iburst
