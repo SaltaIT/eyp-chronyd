@@ -8,7 +8,7 @@ class chronyd::service inherits chronyd {
   {
     if($chronyd::manage_service)
     {
-      case $chronyd::service_ensure,
+      case $chronyd::service_ensure
       {
         'masked':
         {
