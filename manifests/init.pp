@@ -1,7 +1,3 @@
-# === Copyright
-#
-# Copyright 2015 Your name here, unless otherwise noted.
-#
 class chronyd (
                 $manage_package        = true,
                 $package_ensure        = 'installed',
