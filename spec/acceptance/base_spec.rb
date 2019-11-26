@@ -11,12 +11,8 @@ describe 'sysctl class' do
       class { 'chronyd':
       }
 
-      # refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
-      chronyd::refclock { '/dev/ptp0':
-        driver => 'PHC',
-        poll   => '3',
-        dpoll  => '-2',
-        offset => '0',
+      chronyd::server { 'pool':
+        servers => [ '0.rhel.pool.ntp.org' ],
       }
 
       EOF
@@ -29,7 +25,7 @@ describe 'sysctl class' do
     describe file('/etc/chrony.conf') do
       it { should be_file }
       its(:content) { should match 'puppet managed file' }
-      its(:content) { should match 'refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0' }
+      its(:content) { should match 'server 0.rhel.pool.ntp.org iburst' }
     end
 
   end
