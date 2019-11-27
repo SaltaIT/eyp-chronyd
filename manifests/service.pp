@@ -10,7 +10,7 @@ class chronyd::service inherits chronyd {
     {
       case $chronyd::service_ensure
       {
-        'masked':
+        /^mask/:
         {
           # https://tickets.puppetlabs.com/browse/PUP-1253
           if versioncmp($::puppetversion, '4.0.0') < 0
@@ -23,11 +23,9 @@ class chronyd::service inherits chronyd {
           }
           else
           {
-            # TODO: hi ha algun metode que no sigui un overkill
-            #       per fer el mateix sense repetir codi?
             service { $chronyd::params::service_name:
-              ensure     => $chronyd::service_ensure,
-              enable     => $chronyd::service_enable,
+              ensure     => 'stopped',
+              enable     => 'mask',
               hasstatus  => true,
               hasrestart => true,
             }
