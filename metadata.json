@@ -4,9 +4,9 @@
   "author": "eyp",
   "summary": "puppet module to mask chronyd (oracledb role requirement)",
   "license": "Apache-2.0",
-  "source": "https://github.com/NTTCom-MS/eyp-chronyd",
-  "project_page": "https://github.com/NTTCom-MS/eyp-chronyd",
-  "issues_url": "https://github.com/NTTCom-MS/eyp-chronyd/issues",
+  "source": "https://github.com/SaltaIT/eyp-chronyd",
+  "project_page": "https://github.com/SaltaIT/eyp-chronyd",
+  "issues_url": "https://github.com/SaltaIT/eyp-chronyd/issues",
   "dependencies": [
     {"name":"puppetlabs/stdlib","version_requirement":">= 1.0.0 < 9.9.9"},
     {"name":"puppetlabs/concat","version_requirement":">= 1.2.3 < 9.9.9"},
